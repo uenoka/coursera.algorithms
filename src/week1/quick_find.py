@@ -1,17 +1,22 @@
 class quick_find:
-    def __init__(self,n):
-        self.id = [0]*n
+    def __init__(self, n):
         self.n = n
-        for i in range(n):
-            self.id[i] = i
+        self.data = [i for i in range(n)]
 
-    def connected(self,p,q):
-        return self.id[p] == self.id[q]
-    
-    def union(self,p,q):
-        pid = self.id[p]
-        qid = self.id[q]
+    def connected(self, p, q):
+        return self.data[p] == self.data[q]
+
+    def union(self, p, q):
+        pid = self.data[p]
+        qid = self.data[q]
         for i in range(self.n):
-            if self.id[i]==pid:
-                self.id[i]=qid
+            if self.data[i] == pid:
+                self.data[i] = qid
 
+
+qf = quick_find(100000000)
+print(qf.connected(1, 2))
+# print(qf.data)
+qf.union(1, 2)
+print(qf.connected(1, 2))
+# print(qf.data)
