@@ -15,25 +15,41 @@ class weighted_quick_union:
     def union(self, p, q):
         proot = self.root(p)
         qroot = self.root(q)
+        print(self.size[proot], self.size[qroot])
         if self.size[proot] < self.size[qroot]:
-            self.data[proot] = qroot
-            self.size[proot] += self.size[qroot]
-        else:
             self.data[qroot] = proot
             self.size[qroot] += self.size[proot]
+        else:
+            self.data[proot] = qroot
+            self.size[proot] += self.size[qroot]
 
 
-qu = weighted_quick_union(7)
+qu = weighted_quick_union(10)
 
 qu.union(1, 2)
-print('data', qu.data)
-print('size', qu.size)
-qu.union(3, 2)
-print('data', qu.data)
-print('size', qu.size)
+print("size", qu.size)
+print("data", qu.data)
 qu.union(3, 4)
-print('data', qu.data)
-print('size', qu.size)
-qu.union(5, 4)
-print('data', qu.data)
-print('size', qu.size)
+print("size", qu.size)
+print("data", qu.data)
+qu.union(5, 6)
+print("size", qu.size)
+print("data", qu.data)
+qu.union(7, 8)
+print("size", qu.size)
+print("data", qu.data)
+print("====")
+
+qu.union(1, 3)
+print("size", qu.size)
+print("data", qu.data)
+qu.union(5, 7)
+print("size", qu.size)
+print("data", qu.data)
+qu.union(1, 5)
+print("size", qu.size)
+print("data", qu.data)
+
+print("====")
+print("size", qu.size)
+print("data", qu.data)

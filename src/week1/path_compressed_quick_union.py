@@ -24,17 +24,13 @@ class path_compressed_quick_union:
             self.size[proot] += self.size[qroot]
 
 
-qu = path_compressed_quick_union(7)
+qu = path_compressed_quick_union(100)
 
 qu.union(1, 2)
-print('data', qu.data)
-print('size', qu.size)
 qu.union(3, 2)
-print('data', qu.data)
-print('size', qu.size)
 qu.union(3, 4)
-print('data', qu.data)
-print('size', qu.size)
 qu.union(5, 4)
-print('data', qu.data)
-print('size', qu.size)
+qu.union(10, 20)
+qu.union(30, 20)
+qu.union(30, 40)
+qu.union(50, 40)
